@@ -82,6 +82,14 @@ class BooksController extends Controller
                 "message" => "book Not Found",
             ], 404);
         }
+        $data = $request->validated();
+        $book = Books::find($id);
+
+        if (!$book) {
+            return response()->json([
+                "message" => "book Not Found",
+            ], 404);
+        }
 
         if ($request->hasFile('image')) {
 

@@ -23,8 +23,7 @@
 
         <RouterLink class="btn btn-primary mb-7" :to="{ name: 'AddBooks' }" v-if="
             authStore.currentUser &&
-            authStore.currentUser.role.name ===
-            'owner'
+            authStore.currentUser.role.name === 'owner'
         ">
             Add Data
         </RouterLink>
