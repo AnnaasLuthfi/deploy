@@ -69,6 +69,13 @@ class CategoriesController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        $validator = Validator::make($request->all(), [
+            'name' => 'required'
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json($validator->errors(), 422);
+        }
         $category = Categories::find($id);
 
         if (!$category) {
